@@ -1,0 +1,155 @@
+/*
+dimension les plus vues en web :
+px      =>  Pixel
+em      =>  cadratin : unité de mesure en print sur les presses
+            le cadratin se calcul par rapport à son parent
+rem     =>  cadratin racine : se calcul par rapport à la taille racine de police
+%       =>  pourcentage, se calcule par rapport à l'élément qui le contient
+vw & vh =>  viewport width & viewport height : correspond à la taille 
+            d'affichage de la page en largeur et en hauteur
+            si affichage en largeur 768px alors 20vw = 153.6 px
+si 2em = 32 px, 1em = 16px
+*/
+
+/* permet de declarer qques choses pr ts le site sans passe par etoile*/
+:root{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+/* on peut creer des varibles en CSS*/
+--orange-halloween: #ff8c00;
+    --header-bg-color: black;
+    --header-font-color: white;
+    --nav-princ-bg-color: black;
+    --nav-princ-font-color: white;
+    --nav-princ-border-link: rgba(255, 255, 255);
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+
+
+}
+
+
+/* declaration generales*/
+
+/* ça impacte tous les element sans exception */
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+h1{
+    margin: 0;
+}
+
+img{
+    max-width: 100%;
+}
+
+/* declaration des classes*/
+.test-content-box div{
+    box-sizing: content-box;
+}
+.test-border-box div{
+    box-sizing: border-box;
+}
+.moitie{
+    width: 50%;
+    height: 50px;
+    border: 1px solid black;
+    padding: 10px;
+    display: inline-block;
+}
+
+.deuxEm{
+    font-size: 2em;
+    border: 1px solid black;
+    padding: 20px;
+}
+/* c plus propre d'utiliser rem plutot que em*/
+.deuxRem{
+    font-size: 2rem;
+    border: 1px solid black;
+    padding: 20px;
+}
+/* utilisation de la variable creer dans root
+si je change de saison je peux changer la couleurs en fonction de la saison*/
+/*h1{
+    color:var(--orange-halloween);
+}*/
+
+/* declaration sue l'archi*/
+body{
+   /*margin:0 10px 20px 30px;*/
+   margin:0;
+}
+/* ce sera le premier enft directe*/
+body > header{
+ background-color: var(--header-bg-color);
+ color:var(--header-font-color);
+ text-align: center;
+}
+
+/* Ce sera ts le header ds body*/
+/*body  header{
+    color:red;
+   }*/
+
+   body > nav,
+   body > footer{
+       background-color: var(--nav-princ-bg-color);
+       color: var(--nav-princ-font-color);
+   }
+   
+   body > nav ul,
+   body > footer ul{
+       margin: 0;
+       list-style-type: none;
+       padding: 0;
+       line-height: 2.5rem;
+   }
+
+body > nav ul a,
+body > nav ul a:visited,
+body > footer ul a,
+body > footer ul a:visited{
+    color: var(--nav--princ-font-color);
+    text-decoration: none;
+    /* pour que l'on puisse cliquer sur le lien jusquau bout de lecran*/
+    display: block;
+    padding-left: 25px;
+    border-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color:var(--nav-princ-border-link) ;
+    
+}
+
+body > nav ul a:hover,
+body > nav ul a:focus,
+body > footer ul a:hover,
+body > footer ul a:focus{
+    background-color: var(--nav--princ-font-color);
+    color: var(--nav-princ-bg-color);
+}
+
+body > main{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body > main > section article{
+    /*marge à interieu pr que le contenu respire*/
+    padding: 1rem;
+}
+
+body > footer ul{
+    line-height: 2rem;
+}
+
+body > footer h4{
+    text-align: center;
+}
+
+
+
+
+
+
+
