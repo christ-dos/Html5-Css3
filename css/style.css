@@ -105,6 +105,13 @@ body > header{
        line-height: 2.5rem;
    }
 
+   body > nav ul li,
+   body > footer ul li {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color:var(--nav-princ-border-link) ;
+   }
+
 body > nav ul a,
 body > nav ul a:visited,
 body > footer ul a,
@@ -114,9 +121,8 @@ body > footer ul a:visited{
     /* pour que l'on puisse cliquer sur le lien jusquau bout de lecran*/
     display: block;
     padding-left: 25px;
-    border-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color:var(--nav-princ-border-link) ;
+    padding-right: 25px;
+    
     
 }
 
@@ -128,7 +134,13 @@ body > footer ul a:focus{
     color: var(--nav-princ-bg-color);
 }
 
-body > main{
+body > nav ul li:last-child{
+    border-bottom: unset;
+}
+
+body > main,
+body>nav>ul, 
+body>footer>div{
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -154,6 +166,81 @@ body > footer h4{
 
     }
 } */
+/* ecran smathphone*/
+@media screen and (min-width:576px){
+    body>main,
+    body>nav>ul,
+    body>footer>div
+    {
+        width:540px;
+        
+    }
+
+    
+}
+
+/*smart phone paysage*/
+@media screen and (min-width:768px){
+    body>main,
+    body>nav>ul,
+    body>footer>div
+    {
+        width:720px;
+        
+    }
+    body>nav>ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    body > nav ul li
+    {
+        border-bottom: unset;
+    }
+
+}
+
+/*ecran tablette et petit ecran desktop*/
+@media screen and (min-width:992px){
+    body>main,
+    body>nav>ul,
+    body>footer>div
+    {
+        width:960px;
+        
+    }
+}
+/* ecran ordi*/
+@media screen and (min-width:1200px){
+    body>main,
+    body>nav>ul,
+    body>footer>div
+    {
+        width:1140px;
+        
+    }
+}
+/*ecran 2xl*/
+@media screen and (min-width:1400px){
+    body>main,
+    body>nav>ul,
+    body>footer>div
+    {
+        width:1320px;
+        
+    }
+}
+/* ecran 3xl*/
+@media screen and (min-width:1600px){
+    body>main,
+    body>nav>ul,
+    body>footer>div
+    {
+        width:1500px;
+        
+    }
+}
 
 
 
