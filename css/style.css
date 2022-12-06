@@ -1,3 +1,4 @@
+
 /*
 dimension les plus vues en web :
 px      =>  Pixel
@@ -11,11 +12,9 @@ vw & vh =>  viewport width & viewport height : correspond à la taille
 si 2em = 32 px, 1em = 16px
 */
 
-/* permet de declarer qques choses pr ts le site sans passe par etoile*/
 :root{
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-/* on peut creer des varibles en CSS*/
---orange-halloween: #ff8c00;
+    font-family: Arial, Helvetica, sans-serif;
+    --orange-halloween: #ff8c00;
     --header-bg-color: black;
     --header-font-color: white;
     --nav-princ-bg-color: black;
@@ -23,17 +22,21 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
     --nav-princ-border-link: rgba(255, 255, 255);
     font-size: 1.1rem;
     line-height: 1.6rem;
-
-
+    --element-guter-size: 0.5rem;
+    --column-1-1: calc( 100% - calc( 2 * var(--element-guter-size)) );
+    --column-1-2: calc( 50% - calc( 2 * var(--element-guter-size)) );
+    --column-1-3: calc( 33% - calc( 2 * var(--element-guter-size)) );
+    --column-2-3: calc( 66% - calc( 2 * var(--element-guter-size)) );
+    --column-1-4: calc( 25% - calc( 2 * var(--element-guter-size)) );
+    --column-3-4: calc( 75% - calc( 2 * var(--element-guter-size)) );
 }
 
+/* déclarations générales*/
 
-/* declaration generales*/
-
-/* ça impacte tous les element sans exception */
 *, *::before, *::after{
     box-sizing: border-box;
 }
+
 h1{
     margin: 0;
 }
@@ -42,13 +45,16 @@ img{
     max-width: 100%;
 }
 
-/* declaration des classes*/
+/* classes */
+
 .test-content-box div{
     box-sizing: content-box;
 }
+
 .test-border-box div{
     box-sizing: border-box;
 }
+
 .moitie{
     width: 50%;
     height: 50px;
@@ -62,93 +68,82 @@ img{
     border: 1px solid black;
     padding: 20px;
 }
-/* c plus propre d'utiliser rem plutot que em*/
 .deuxRem{
     font-size: 2rem;
     border: 1px solid black;
     padding: 20px;
 }
-/* utilisation de la variable creer dans root
-si je change de saison je peux changer la couleurs en fonction de la saison*/
-/*h1{
-    color:var(--orange-halloween);
-}*/
 
-/* declaration sue l'archi*/
+/* déclarations sur l'archi */
+
 body{
-   /*margin:0 10px 20px 30px;*/
-   margin:0;
+    margin: 0;
 }
-/* ce sera le premier enft directe*/
+
 body > header{
- background-color: var(--header-bg-color);
- color:var(--header-font-color);
- text-align: center;
+    background-color: var(--header-bg-color);
+    color: var(--header-font-color);
+    text-align: center;
 }
 
-/* Ce sera ts le header ds body*/
-/*body  header{
-    color:red;
-   }*/
+body > nav,
+body > footer{
+    background-color: var(--nav-princ-bg-color);
+    color: var(--nav-princ-font-color);
+}
 
-   body > nav,
-   body > footer{
-       background-color: var(--nav-princ-bg-color);
-       color: var(--nav-princ-font-color);
-   }
-   
-   body > nav ul,
-   body > footer ul{
-       margin: 0;
-       list-style-type: none;
-       padding: 0;
-       line-height: 2.5rem;
-   }
+body > nav ul,
+body > footer ul{
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+    line-height: 2.5rem;
+}
 
-   body > nav ul li,
-   body > footer ul li {
+body > nav ul li,
+body > footer ul li{
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color:var(--nav-princ-border-link) ;
-   }
+    border-bottom-color: var(--nav-princ-border-link);
+}
 
 body > nav ul a,
 body > nav ul a:visited,
 body > footer ul a,
-body > footer ul a:visited{
-    color: var(--nav--princ-font-color);
+body > footer ul a:visited
+{
+    color: var(--nav-princ-font-color);
     text-decoration: none;
-    /* pour que l'on puisse cliquer sur le lien jusquau bout de lecran*/
     display: block;
     padding-left: 25px;
     padding-right: 25px;
-    
-    
-}
-
-body > nav ul a:hover,
-body > nav ul a:focus,
-body > footer ul a:hover,
-body > footer ul a:focus{
-    background-color: var(--nav--princ-font-color);
-    color: var(--nav-princ-bg-color);
 }
 
 body > nav ul li:last-child{
     border-bottom: unset;
 }
 
+body > nav ul a:hover,
+body > nav ul a:focus,
+body > footer ul a:hover,
+body > footer ul a:focus
+{
+    background-color: var(--nav-princ-font-color);
+    color: var(--nav-princ-bg-color);
+}
+
 body > main,
-body>nav>ul, 
-body>footer>div{
+body > nav > ul,
+body > footer > div{
     width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 body > main > section article{
-    /*marge à interieu pr que le contenu respire*/
     padding: 1rem;
+    width: var(--column-1-1);
+    margin: var(--element-guter-size);
 }
 
 body > footer ul{
@@ -159,91 +154,113 @@ body > footer h4{
     text-align: center;
 }
 
-/* exemple de media pour impression mais on fera un css pour l'impression*/
-/*@media print{
-    body > nav, button, body >footer{
+/*
+@media print {
+    body > nav, button, body > footer{
         display: none;
-
     }
-} */
-/* ecran smathphone*/
-@media screen and (min-width:576px){
-    body>main,
-    body>nav>ul,
-    body>footer>div
-    {
-        width:540px;
-        
-    }
+}
+*/
 
-    
+@media screen and (min-width: 576px){
+    body > main,
+    body > nav > ul,
+    body > footer > div{
+        width: 540px;
+    }
 }
 
-/*smart phone paysage*/
-@media screen and (min-width:768px){
-    body>main,
-    body>nav>ul,
-    body>footer>div
-    {
-        width:720px;
-        
+@media screen and (min-width: 768px){
+    body > main,
+    body > nav > ul,
+    body > footer > div{
+        width: 720px;
     }
-    body>nav>ul{
+
+    body > nav > ul{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
 
-    body > nav ul li
-    {
+    body > nav ul li{
         border-bottom: unset;
     }
 
 }
 
-/*ecran tablette et petit ecran desktop*/
-@media screen and (min-width:992px){
-    body>main,
-    body>nav>ul,
-    body>footer>div
-    {
-        width:960px;
-        
+@media screen and (min-width: 992px){
+    body > main,
+    body > nav > ul,
+    body > footer > div{
+        width: 960px;
     }
-}
-/* ecran ordi*/
-@media screen and (min-width:1200px){
-    body>main,
-    body>nav>ul,
-    body>footer>div
-    {
-        width:1140px;
-        
+
+    body > main > section{
+        display: flex;
+        flex-wrap: wrap;
     }
-}
-/*ecran 2xl*/
-@media screen and (min-width:1400px){
-    body>main,
-    body>nav>ul,
-    body>footer>div
-    {
-        width:1320px;
-        
+
+    body > main > section article{
+        width: var(--column-1-2);
     }
-}
-/* ecran 3xl*/
-@media screen and (min-width:1600px){
-    body>main,
-    body>nav>ul,
-    body>footer>div
-    {
-        width:1500px;
-        
+
+    body > main > section > article:last-child:nth-of-type(2n + 1){
+        width: var(--column-1-1);
     }
 }
 
+@media screen and (min-width: 1200px){
+    body > main,
+    body > nav > ul,
+    body > footer > div{
+        width: 1140px;
+    }
 
+    body > main > section > article:last-child:nth-of-type(2n + 1){
+        width: var(--column-1-3);
+    }
 
+    body > main > section article{
+        width: var(--column-1-3);
+    }
+
+    body > main > section > article:last-child:nth-of-type(3n + 2){
+        width: var(--column-2-3);
+    }
+
+    body > main > section > article:last-child:nth-of-type(3n + 1){
+        width: var(--column-1-1);
+    }
+}
+
+@media screen and (min-width: 1400px){
+    body > main,
+    body > nav > ul,
+    body > footer > div{
+        width: 1320px;
+    }
+}
+
+@media screen and (min-width: 1600px){
+    body > main,
+    body > nav > ul,
+    body > footer > div{
+        width: 1500px;
+    }
+
+    body > main > section article{
+        width: var(--column-1-4);
+    }
+
+    body > main > section > article:last-child:nth-of-type(4n + 3){
+        width: var(--column-1-2);
+    }
+
+    body > main > section > article:last-child:nth-of-type(4n + 2){
+        width: var(--column-3-4);
+    }
+}
 
 
 
