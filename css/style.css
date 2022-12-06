@@ -147,6 +147,15 @@ body > footer h4{
     text-align: center;
 }
 
+/* exemple de media pour impression mais on fera un css pour l'impression*/
+/*@media print{
+    body > nav, button, body >footer{
+        display: none;
+
+    }
+} */
+
+
 
 
 
